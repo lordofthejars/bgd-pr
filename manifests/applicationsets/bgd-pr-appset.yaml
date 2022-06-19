@@ -9,6 +9,9 @@ spec:
       github:
         owner: lordofthejars
         repo: bgd-pr
+        tokenRef:
+          secretName: mysecret
+          key: token
         labels:
         - preview
       requeueAfterSeconds: 5
@@ -17,7 +20,7 @@ spec:
       name: 'bgd-{{branch}}-{{number}}'
     spec:
       source:
-        repoURL: 'https://github.com/lordofthejars/bgd-pr'
+        repoURL: 'https://github.com/lordofthejars/bgd-pr.git'
         targetRevision: '{{head_sha}}'
         path: app/overlays/default/
       project: default
